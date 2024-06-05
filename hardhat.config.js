@@ -12,6 +12,16 @@ module.exports = {
     solidity: {
         compilers: [
             {
+                version: "0.8.24",
+                settings: {
+                    optimizer: {
+                        enabled: true,
+                        runs: 200,
+                    },
+                    viaIR: true,
+                },
+            },
+            {
                 version: "0.8.20",
                 settings: {
                     optimizer: {
@@ -30,14 +40,12 @@ module.exports = {
         },
         testnet: {
             chainId: 1131,
-            // url: "https://dmc.mydefichain.com/testnet",
-            url: "https://eth.testnet.ocean.jellyfishsdk.com/",
+            url: "https://dmc.mydefichain.com/testnet",
             accounts: [process.env.OWNER_KEY],
         },
         mainnet: {
             chainId: 1130,
-            // url: "https://dmc.mydefichain.com/mainnet",
-            url: "https://eth.mainnet.ocean.jellyfishsdk.com/",
+            url: "https://dmc.mydefichain.com/mainnet",
             accounts: [process.env.OWNER_KEY],
         },
     },

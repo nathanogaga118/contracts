@@ -4,14 +4,17 @@ async function main() {
     const [owner] = await ethers.getSigners();
     // We get the contract to deploy
     console.log(`Deploying from ${owner.address}`);
-    const Contract = await ethers.getContractFactory("LPProvider");
+    const Contract = await ethers.getContractFactory("RewardsDistributor");
     const contract = await upgrades.deployProxy(
         Contract,
         [
-            "0x274567C3B27F3981C4Ae7C951ECDe1C2aE70e6d0", //_nonfungiblePositionManager
-            "0x3E8C92491fc73390166BA00725B8F5BD734B8fba", //_routerAddressV2
-            "0x2A9c4EdE9994911359af815367187947eD1dDf02", //_swapRouter
-            "0x5B339C55eD738c47f5fd6D472b41ec878910AB69", //_botAddress
+            "0x66F3Cf265D2D146A0348F6fC67E3Da0835e0968E", // _javAddress,
+            "0x2A9c4EdE9994911359af815367187947eD1dDf02", // _swapRouter,
+            "0x0000000000000000000000000000000000000000", // _stakingAddress,
+            "0x4e15D4225623D07Adb43e9D546E57E1E6097e869", // _freezerAddress,
+            50, // _burnPercent,
+            70, // _freezerPercent,
+            ["0x9065F4D6fB7B940D64941542c728f3883dE04FdC"], // _allowedAddresses_
         ],
         {
             initializer: "initialize",
@@ -24,7 +27,7 @@ async function main() {
     await contract.waitForDeployment();
 
     const contractAddress = await contract.getAddress();
-    console.log(`LPProvider contract deployed to: ${contractAddress}`);
+    console.log(`RewardsDistributor contract deployed to: ${contractAddress}`);
 }
 
 main()
