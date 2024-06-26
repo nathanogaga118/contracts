@@ -18,7 +18,6 @@ module.exports = {
                         enabled: true,
                         runs: 200,
                     },
-                    viaIR: true,
                 },
             },
             {
@@ -60,7 +59,9 @@ module.exports = {
                 chainId: 1131,
                 urls: {
                     apiURL: "https://blockscout.testnet.ocean.jellyfishsdk.com/api",
+                    // apiURL: "https://testnet-dmc.mydefichain.com/api",
                     browserURL: "https://blockscout.testnet.ocean.jellyfishsdk.com",
+                    // browserURL: "https://testnet-dmc.mydefichain.com",
                 },
             },
             {
@@ -68,7 +69,9 @@ module.exports = {
                 chainId: 1130,
                 urls: {
                     apiURL: "https://blockscout.mainnet.ocean.jellyfishsdk.com/api",
+                    // apiURL: "https://mainnet-dmc.mydefichain.com/api",
                     browserURL: "https://blockscout.mainnet.ocean.jellyfishsdk.com",
+                    // browserURL: "https://mainnet-dmc.mydefichain.com",
                 },
             },
         ],
